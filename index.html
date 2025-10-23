@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sai Balaji Tours and Travels</title>
+  <style>
+    body { font-family: "Poppins", sans-serif; margin: 0; background: #f5f5f5; color: #333; }
+    header { background: linear-gradient(90deg, rgba(230,81,0,0.85), rgba(191,54,12,0.85)), url('images/swift-1.jpg') center/cover no-repeat; color: white; text-align: center; padding: 60px 20px; }
+    header h1 { font-size: 2.5em; margin-bottom: 10px; }
+    header p { font-size: 1.2em; }
+    nav { background: #fff; padding: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    nav a { text-decoration: none; color: #E65100; margin: 0 15px; font-weight: bold; }
+    nav a:hover { color: #BF360C; }
+    section { padding: 40px 20px; text-align: center; }
+    h2 { color: #E65100; }
+    .btn { display: inline-block; background: #E65100; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; margin-top: 15px; cursor: pointer; border: none; }
+    .btn:hover { background: #BF360C; }
+    form { background: white; padding: 30px; border-radius: 10px; max-width: 500px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    input, select, button { width: 90%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; font-size: 1em; }
+    footer { background: #333; color: white; text-align: center; padding: 20px; }
+    /* Gallery & Slider */
+    /* Cars Grid */
+    .cars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin: 20px 0; }
+    .car-card { background: #fff; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.1); overflow: hidden; text-align: left; }
+    .car-card img { width: 100%; height: auto; object-fit: contain; display: block; aspect-ratio: 16/9; max-height: 320px; background: #fff; }
+    .car-card .card-body { padding: 15px; }
+    .car-card h3 { margin: 0 0 8px; color: #E65100; }
+    .car-card ul { list-style: none; padding: 0; margin: 0 0 10px; }
+    .car-card ul li { margin: 4px 0; }
+    .book-car-btn { width: 100%; }
+    .car-photos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; padding: 0 15px 15px; }
+    .car-photos img { width: 100%; height: auto; object-fit: contain; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); background: #fff; aspect-ratio: 16/9; max-height: 260px; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+</head>
+<body>
+
+  <header>
+    <h1>Sai Balaji Tours and Travels</h1>
+    <p>Comfortable, safe, and affordable rides for your journeys.</p>
+    <a href="#booking" class="btn">Book Now</a>
+    <a href="#contact" class="btn">Contact Us</a>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#cars">Cars</a>
+    <a href="#booking">Booking</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Welcome to Sai Balaji Tours and Travels! Serving Shirdi and nearby routes since 2018 with reliable, punctual, and courteous drivers.
+    We operate one-way, round-trip, airport, outstation and event travel at transparent, affordable rates. Our mission is simple: safe, on-time rides—always.</p>
+    <img src="images/car1.jpg" alt="Our Car and Driver" style="width:100%; max-width:600px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1); margin-top:10px;">
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <p>✅ One-way and round trips<br>
+       ✅ Airport pickup/drop<br>
+       ✅ Outstation travel<br>
+       ✅ Local sightseeing<br>
+       ✅ Wedding and event transportation</p>
+  </section>
+
+  <!-- Cars Section -->
+  <section id="cars">
+    <h2>Available Cars</h2>
+
+    <div class="cars-grid">
+      <div class="car-card">
+        <img src="images/car2.jpg" alt="Swift Dzire">
+        <div class="card-body">
+          <h3>Swift Dzire</h3>
+          <ul>
+            <li>Seating: 4</li>
+            <li>AC</li>
+            
+          </ul>
+          <button class="btn book-car-btn" data-car="Swift Dzire">Book Now</button>
+        </div>
+      </div>
+    </div>
+    <div class="car-photos">
+      <img src="images/car2.jpg" alt="Swift Dzire - exterior">
+      <img src="images/car3.jpg" alt="Swift Dzire - front view">
+    </div>
+  </section>
+
+  <!-- Booking Form -->
+  <section id="booking">
+    <h2>Book Your Ride</h2>
+    <form id="bookingForm">
+      <select id="carSelect">
+        <option value="Swift Dzire">Swift Dzire</option>
+      </select><br>
+      <input type="text" id="name" placeholder="Full Name" required><br>
+      <input type="tel" id="contact" placeholder="Contact Number" required><br>
+      <input type="text" id="pickup" placeholder="Pickup Location" required><br>
+      <button type="button" id="useLocationBtn" class="btn">Use Current Location</button><br>
+      <input type="text" id="drop" placeholder="Drop Location" required><br>
+      <input type="date" id="date" required><br>
+      <input type="time" id="time" required><br>
+      <select id="tripType">
+        <option value="One Way">One Way</option>
+        <option value="Round Trip">Round Trip</option>
+      </select><br>
+      <input type="number" id="passengers" placeholder="Number of Passengers"><br>
+      <button type="submit">Book Now</button>
+    </form>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>📍 Shirdi, Maharashtra<br>
+       📞 +91 9834307979<br>
+       📧 saibalajitours11@gmail.com</p>
+    <div style="margin:15px 0; display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+      <a href="tel:+919834307979" class="btn">Call Now</a>
+      <a href="mailto:saibalajitours11@gmail.com" class="btn">Email Us</a>
+      <a href="https://api.whatsapp.com/send?phone=919834307979" class="btn" target="_blank">Chat on WhatsApp</a>
+    </div>
+    <div style="max-width:900px; margin:0 auto; border-radius:10px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+      <iframe title="Map to Shirdi" src="https://www.google.com/maps?q=Shirdi%2C+Maharashtra&output=embed" width="100%" height="300" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <footer>
+    <p> 2025 Sai Balaji Tours and Travels | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    // Initialize EmailJS
+    emailjs.init("Kpd8UAB1CyPyqRmx6");
+
+    // Booking Form Submission
+    document.getElementById("bookingForm").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const contact = document.getElementById("contact").value;
+      const pickup = document.getElementById("pickup").value;
+      const drop = document.getElementById("drop").value;
+      const date = document.getElementById("date").value;
+      const time = document.getElementById("time").value;
+      const tripType = document.getElementById("tripType").value;
+      const passengers = document.getElementById("passengers").value;
+      const selectedCar = document.getElementById("carSelect").value || "Not specified";
+
+      // Conflict check: area (pickup) + exact date + time
+      const norm = (s) => (s || "").trim().toLowerCase().replace(/\s+/g, " ");
+      const slotId = `${date}|${time}|${norm(pickup)}`;
+      const storeKey = 'confirmed_bookings';
+      try {
+        const existing = JSON.parse(localStorage.getItem(storeKey) || '[]');
+        if (existing.includes(slotId)) {
+          alert('Already booked for that time in this area. Please choose another day or time.');
+          return;
+        }
+      } catch(_) {}
+
+      const bookingDetails = `
+🚗 *New Car Booking* 
+Name: ${name}
+Contact: ${contact}
+Pickup: ${pickup}
+Drop: ${drop}
+Date: ${date} at ${time}
+Trip Type: ${tripType}
+Passengers: ${passengers}
+Car: ${selectedCar}
+`;
+
+      // Send Email
+      emailjs.send("service_o3wpl61","template_0byhk9z",{
+        name, contact, pickup, drop, date, time, tripType, passengers, selectedCar
+      }).then(()=>{
+        // Save slot to localStorage as confirmed
+        try {
+          const existing = JSON.parse(localStorage.getItem(storeKey) || '[]');
+          if (!existing.includes(slotId)) {
+            existing.push(slotId);
+            localStorage.setItem(storeKey, JSON.stringify(existing));
+          }
+        } catch(_) {}
+        alert("✅ Booking successful! Details sent to email and WhatsApp.");
+      }).catch(()=> alert("❌ Email sending failed."));
+
+      // Send WhatsApp
+      const whatsappNumber = "919834307979";
+      window.open(`https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(bookingDetails)}`, "_blank");
+
+      document.getElementById("bookingForm").reset();
+    });
+
+    // Geolocation: Use Current Location to fill Pickup
+    const useLocationBtn = document.getElementById('useLocationBtn');
+    const pickupInput = document.getElementById('pickup');
+    if (useLocationBtn && navigator.geolocation) {
+      useLocationBtn.addEventListener('click', () => {
+        const originalText = useLocationBtn.textContent;
+        useLocationBtn.disabled = true;
+        useLocationBtn.textContent = 'Getting location...';
+        navigator.geolocation.getCurrentPosition(async (pos) => {
+          try {
+            const { latitude, longitude } = pos.coords;
+            const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`;
+            const res = await fetch(url, { headers: { 'Accept': 'application/json' } });
+            const data = await res.json();
+            const address = data && (data.display_name || `${latitude.toFixed(5)}, ${longitude.toFixed(5)}`);
+            pickupInput.value = address;
+          } catch (err) {
+            alert('Could not fetch address. Filled coordinates instead.');
+            const { latitude, longitude } = pos.coords;
+            pickupInput.value = `${latitude.toFixed(5)}, ${longitude.toFixed(5)}`;
+          } finally {
+            useLocationBtn.disabled = false;
+            useLocationBtn.textContent = originalText;
+          }
+        }, (err) => {
+          alert('Location permission denied or unavailable.');
+          useLocationBtn.disabled = false;
+          useLocationBtn.textContent = 'Use Current Location';
+        }, { enableHighAccuracy: true, timeout: 10000 });
+      });
+    }
+
+    // Book buttons prefill and scroll
+    const bookButtons = document.querySelectorAll('.book-car-btn');
+    const carSelect = document.getElementById('carSelect');
+    const bookingSection = document.getElementById('booking');
+    bookButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const car = btn.getAttribute('data-car');
+        if (carSelect) carSelect.value = car;
+        bookingSection.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Image fallbacks if uploaded files are not present yet
+    (function(){
+      const testImage = (src) => new Promise((resolve, reject) => { const i = new Image(); i.onload = () => resolve(true); i.onerror = reject; i.src = src + (src.includes('?') ? '' : '?cachebust=' + Date.now()); });
+      // Hero background fallback
+      const heroEl = document.querySelector('header');
+      if (heroEl) {
+        testImage('images/swift-1.jpg').catch(()=>{
+          heroEl.style.backgroundImage = "linear-gradient(90deg, rgba(230,81,0,0.85), rgba(191,54,12,0.85)), url('images/car1.jpg')";
+        });
+      }
+      // Car photos fallback
+      document.querySelectorAll('.car-photos img').forEach(img => {
+        img.addEventListener('error', () => { img.src = 'images/car1.jpg'; });
+      });
+    })();
+  </script>
+
+</body>
+</html>
